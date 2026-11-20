@@ -1,0 +1,48 @@
+# Конфігурація RAG-системи CS-SimpleWiki RAG
+# Зафіксовано на етапі проєктування (Лабораторна робота № 1)
+
+project:
+  name: "CS-SimpleWiki RAG"
+  repository: "rag-project-kryvoshapko"
+  language: "en"  # мова корпусу та запитів
+
+dataset:
+  name: "Simple English Wikipedia (Computer Science & IT subset)"
+  source: "wikimedia/wikipedia"
+  config: "20231101.simple"
+  license: "CC BY-SA 4.0 / GFDL"
+  target_documents_min: 1000
+  target_documents_max: 1500
+  min_char_length: 100
+
+chunking:
+  strategy: "fixed_word_window"
+  chunk_size_words: 300
+  overlap_ratio: 0.15
+  output_path: "data/processed/chunks.jsonl"
+
+embeddings:
+  library: "sentence-transformers"
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  dimension: 384
+  device: "cpu"
+
+vector_store:
+  engine: "chromadb"
+  persist_directory: "data/chroma_db"
+  collection_name: "cs_simplewiki_chunks"
+  distance_metric: "cosine"
+
+retrieval:
+  dense_top_k: 10
+  bm25_top_k: 10
+  fusion_method: "rrf"
+  rrf_k: 60
+  final_top_k: 5
+
+generation:
+  provider: "ollama"
+  model_name: "qwen2.5:3b"
+  base_url: "http://localhost:11434"
+  temperature: 0.1
+  max_retries_on_invalid_citations: 1

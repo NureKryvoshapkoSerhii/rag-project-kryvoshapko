@@ -1,0 +1,25 @@
+# Python & virtual environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# Local data, corpora and vector indexes (avoid committing large files >100 MB)
+data/raw/
+data/chroma_db/
+*.bin
+*.sqlite3
+
+# Environment variables & secrets
+.env
+.env.local
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*.docx

@@ -1,0 +1,33 @@
+flowchart TB
+    subgraph OFFLINE["OFFLINE-КОНТУР: підготовка та індексація даних (ЛБ-2, ЛБ-3)"]
+        direction LR
+        SRC["Джерело даних<br/>Simple English Wikipedia<br/>wikimedia/wikipedia (20231101.simple)<br/>CC BY-SA 4.0 • 1 000–1 500 статей"]
+        ING["Пайплайн прийому даних<br/>src/ingest/<br/>UTF-8, очищення HTML, фільтр ≥ 100 симв.<br/>Чанкування: 300 слів, перекриття 15%"]
+        EMB["Сервіс ембедингів<br/>src/embeddings/<br/>all-MiniLM-L6-v2 (CPU, 384d)"]
+        IDX[("Векторний індекс та сховище<br/>ChromaDB (HNSW, local)<br/>+ BM25-індекс (rank_bm25)")]
+
+        SRC -->|статті| ING
+        ING -->|data/chunks.jsonl| EMB
+        EMB -->|вектори 384d + метадані| IDX
+        ING -.->|тексти чанків для BM25| IDX
+    end
+
+    subgraph ONLINE["ONLINE-КОНТУР: обробка запиту, пошук та генерація (ЛБ-4, ЛБ-5)"]
+        direction LR
+        USR(["Користувач<br/>Студент ІПЗ / Junior Dev"])
+        CLI["Інтерфейс користувача (CLI)<br/>src/cli.py<br/>Запит з командного рядка / JSON"]
+        RET["Ретривер (Гібридний пошук)<br/>src/retrieval/<br/>ChromaDB + BM25 + RRF (k=60)"]
+        LLM["Модель генерації (LLM)<br/>src/generation/<br/>Ollama: qwen2.5:3b<br/>Промпт із цитуванням [chunk_id]"]
+        VAL["Валідатор виходу (Контракт)<br/>Перевірка [chunk_id] у top-K<br/>1 повторна спроба або відмова"]
+
+        USR -->|запит| CLI
+        CLI -->|query| RET
+        RET -->|top-K чанків| LLM
+        LLM -->|draft| VAL
+        VAL -.->|1 повторна спроба| LLM
+        VAL -->|валідована відповідь + цитати| CLI
+        CLI -->|відповідь| USR
+    end
+
+    RET <-->|вектор запиту 384d| EMB
+    RET <-->|пошук top-K + метадані| IDX
