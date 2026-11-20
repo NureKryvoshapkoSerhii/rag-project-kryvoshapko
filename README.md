@@ -131,10 +131,30 @@ ollama run qwen2.5:3b "Explain what a hash table is in one sentence."
 
 ---
 
+## Запуск пайплайну збору та підготовки даних (ЛБ-2)
+
+```powershell
+# Повний запуск із завантаженням Simple English Wikipedia з Hugging Face Hub
+python -m src.ingest.pipeline
+
+# Швидкий повторний запуск із локального кешу data/raw/ (~1.5 с)
+python -m src.ingest.pipeline --from-cache
+
+# Перегляд статистики корпусу, топ-20 слів, 10 випадкових документів і прикладів чанків
+python -m src.ingest.pipeline --inspect
+
+# Запуск модульних тестів очищення та чанкування
+python -m unittest discover -s tests -v
+```
+
+Результати ЛБ-2 зберігаються у `data/processed/chunks.jsonl` (2 225 чанків, 2.89 МБ) та `reports/lab-2/data-card.md`.
+
+---
+
 ## Етапи виконання проєкту (теґи релізів)
 
 - `lab-1` – проєктування ПЗ: сценарій використання, вибір корпусу та стеку, архітектурна діаграма, ініціалізація репозиторію;
-- `lab-2` – збір, очищення, чанкування корпусу та `data-card.md` (заплановано);
+- `lab-2` – збір, очищення, чанкування корпусу (`data/processed/chunks.jsonl`) та `reports/lab-2/data-card.md`;
 - `lab-3` – ембединги, векторний індекс ChromaDB та вимірювання `Recall@k` (заплановано);
 - `lab-4` – гібридний пошук (ChromaDB + BM25 + RRF), генерація через Ollama, контракт цитування та CLI (заплановано);
 - `lab-5` – оцінювання, поведінкові й метаморфні тести, перевірка ін'єкцій промпта (заплановано).

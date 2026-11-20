@@ -1,0 +1,187 @@
+{
+  "snapshot_total_docs": 241787,
+  "docs_before_cleaning": 1500,
+  "docs_removed_short": 4,
+  "docs_after_cleaning": 1496,
+  "min_char_length": 100,
+  "total_chars_before": 2361790,
+  "total_chars_after": 2346271,
+  "avg_doc_chars": 1568.4,
+  "avg_doc_words": 253.8,
+  "total_chunks": 2225,
+  "avg_chunks_per_doc": 1.49,
+  "chunk_size_words": 300,
+  "overlap_words": 45,
+  "step_words": 255,
+  "avg_chunk_words": 185.4,
+  "avg_chunk_chars": 1140.4,
+  "median_chunk_words": 181,
+  "min_chunk_words": 16,
+  "max_chunk_words": 300,
+  "jsonl_size_bytes": 3025935,
+  "jsonl_size_mb": 2.89,
+  "top_20_all_words": [
+    [
+      "the",
+      21754
+    ],
+    [
+      "of",
+      10285
+    ],
+    [
+      "to",
+      9511
+    ],
+    [
+      "and",
+      9109
+    ],
+    [
+      "is",
+      8592
+    ],
+    [
+      "in",
+      7321
+    ],
+    [
+      "for",
+      4534
+    ],
+    [
+      "it",
+      4256
+    ],
+    [
+      "that",
+      3867
+    ],
+    [
+      "are",
+      3263
+    ],
+    [
+      "on",
+      3133
+    ],
+    [
+      "as",
+      3036
+    ],
+    [
+      "or",
+      2941
+    ],
+    [
+      "computer",
+      2781
+    ],
+    [
+      "be",
+      2774
+    ],
+    [
+      "can",
+      2563
+    ],
+    [
+      "by",
+      2533
+    ],
+    [
+      "with",
+      2316
+    ],
+    [
+      "was",
+      2281
+    ],
+    [
+      "an",
+      2162
+    ]
+  ],
+  "top_20_content_words": [
+    [
+      "computer",
+      2781
+    ],
+    [
+      "software",
+      1586
+    ],
+    [
+      "windows",
+      1568
+    ],
+    [
+      "system",
+      1265
+    ],
+    [
+      "data",
+      1208
+    ],
+    [
+      "internet",
+      1100
+    ],
+    [
+      "program",
+      901
+    ],
+    [
+      "operating",
+      872
+    ],
+    [
+      "computers",
+      848
+    ],
+    [
+      "web",
+      821
+    ],
+    [
+      "microsoft",
+      820
+    ],
+    [
+      "people",
+      804
+    ],
+    [
+      "systems",
+      775
+    ],
+    [
+      "references",
+      734
+    ],
+    [
+      "version",
+      706
+    ],
+    [
+      "programming",
+      702
+    ],
+    [
+      "language",
+      701
+    ],
+    [
+      "linux",
+      680
+    ],
+    [
+      "code",
+      672
+    ],
+    [
+      "network",
+      669
+    ]
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "doc_id": "443718",
+    "title": "Software extension",
+    "url": "https://simple.wikipedia.org/wiki/Software%20extension",
+    "char_count": 372,
+    "word_count": 62,
+    "preview": "A software extension is a type of computer program that is meant to extend (add on to) what another computer program (called the base program) is able to do. Usually, it has some more instructions that the base program does not have. Either the base program or the extension can tell those instructions to run.  Related "
+  },
+  {
+    "doc_id": "37714",
+    "title": "Sound card",
+    "url": "https://simple.wikipedia.org/wiki/Sound%20card",
+    "char_count": 1962,
+    "word_count": 332,
+    "preview": "A sound card (or audio card) is the part of the computer hardware that controls the input and output of the sound signals. A sound card is what is known as an expansion card. This means that the card can be added to the motherboard.  Nowadays, most of the audio cards are integrated with the motherboard. That means they"
+  },
+  {
+    "doc_id": "3925",
+    "title": "Machine code",
+    "url": "https://simple.wikipedia.org/wiki/Machine%20code",
+    "char_count": 5510,
+    "word_count": 900,
+    "preview": "Machine code is a computer program written in machine language. It uses the instruction set of a particular computer architecture. It is usually written in binary. Machine code is the lowest level of software. Other programming languages are translated into machine code so the computer can execute them.  An instruction"
+  },
+  {
+    "doc_id": "120173",
+    "title": "Super OS",
+    "url": "https://simple.wikipedia.org/wiki/Super%20OS",
+    "char_count": 2830,
+    "word_count": 455,
+    "preview": "Super OS (formerly: Super Ubuntu) is a free Linux distribution. It is a modified version of Ubuntu made with reconstructor. Its main goal is to provide an ‘Out of the Box’ experience, containing various enhancements over Ubuntu. It has the goal of remaining compatible with Ubuntu.  Features Includes an easy way to run "
+  },
+  {
+    "doc_id": "104118",
+    "title": "Pebibyte",
+    "url": "https://simple.wikipedia.org/wiki/Pebibyte",
+    "char_count": 285,
+    "word_count": 46,
+    "preview": "A pebibyte (peta binary byte, abbreviated PiB) is a large unit of measurement of bytes (computer memory). 1 pebibyte = 250 bytes = 1,125,899,906,842,624 bytes = 1,024 tebibytes. It is related to the petabyte which is 1015 bytes.  1024 pebibytes make one exbibyte.  Units of information"
+  },
+  {
+    "doc_id": "87130",
+    "title": "Grid",
+    "url": "https://simple.wikipedia.org/wiki/Grid",
+    "char_count": 1796,
+    "word_count": 280,
+    "preview": "Grid may mean:  Meaning an array of squares or rectangles:  Grid plan, a city plan in which streets run at right angles to form a grid Grid reference, a standard method for the location of a point on a map. Grid view or datagrid, a graphical user interface element that presents a tabular view of data Grid graph, in gra"
+  },
+  {
+    "doc_id": "47056",
+    "title": "Sunflowers Interactive Entertainment Software",
+    "url": "https://simple.wikipedia.org/wiki/Sunflowers%20Interactive%20Entertainment%20Software",
+    "char_count": 870,
+    "word_count": 141,
+    "preview": "Sunflowers Interactive Entertainment Software is a German company that develops and publishes video games. It is in Heusenstamm, Germany. It was founded in 1993 by Adi Boiko and Wilhelm Hamrozi. Boiko is now president of the company and Hamrozi is chief executive officer (CEO). The company is known for the Anno series "
+  },
+  {
+    "doc_id": "33791",
+    "title": "Pascal",
+    "url": "https://simple.wikipedia.org/wiki/Pascal",
+    "char_count": 1771,
+    "word_count": 276,
+    "preview": "Pascal is a programming language. It was created in 1970 by Niklaus Wirth, to help people learn how to make computer programs.  Development Now, there are many different dialects of the language, some of which support object-oriented programming. In 1990 the “Pascal” and “Extended Pascal” standards were registered with"
+  },
+  {
+    "doc_id": "483414",
+    "title": "AIDS (MS-DOS)",
+    "url": "https://simple.wikipedia.org/wiki/AIDS%20%28MS-DOS%29",
+    "char_count": 810,
+    "word_count": 141,
+    "preview": "AIDS is a computer virus that infects .COM and .EXE files. In MS-DOS, the .COM and .EXE files run programs including the operating system. When a computer is infected with this virus, it loads the virus into the computer memory. There, the AIDS virus may infect another .COM or .EXE file each time it is run. AIDS writes"
+  },
+  {
+    "doc_id": "321105",
+    "title": "Pentium F00F bug",
+    "url": "https://simple.wikipedia.org/wiki/Pentium%20F00F%20bug",
+    "char_count": 711,
+    "word_count": 119,
+    "preview": "The Pentium F00F bug is a hardware bug (design flaw) found in most original Pentium computer processors (but not in Pentium II, III, or 4). The bug allows a malicious program running as an unprivileged (non-root) user to crash the computer by running the instructions (in hexadecimal) F00FC7C8. In assembly language, thi"
+  }
+]
