@@ -1,0 +1,21 @@
+{
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "device": "cpu",
+  "dimension": 384,
+  "vector_count": 2225,
+  "collection_name": "cs_simplewiki_chunks",
+  "persist_directory": "data/chroma_db",
+  "distance_metric": "cosine",
+  "prepend_title": true,
+  "normalize_embeddings": true,
+  "hnsw_m": 32,
+  "hnsw_construction_ef": 200,
+  "hnsw_search_ef": 100,
+  "model_load_seconds": 0.28,
+  "encode_seconds": 34.48,
+  "index_seconds": 2.93,
+  "total_seconds": 37.7,
+  "chunks_per_second": 64.5,
+  "disk_size_bytes": 27740990,
+  "disk_size_mb": 26.46
+}

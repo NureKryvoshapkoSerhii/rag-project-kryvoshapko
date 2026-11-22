@@ -26,12 +26,17 @@ embeddings:
   model_name: "sentence-transformers/all-MiniLM-L6-v2"
   dimension: 384
   device: "cpu"
+  prepend_title: true
+  normalize_embeddings: true
 
 vector_store:
   engine: "chromadb"
   persist_directory: "data/chroma_db"
   collection_name: "cs_simplewiki_chunks"
   distance_metric: "cosine"
+  hnsw_m: 32
+  hnsw_construction_ef: 200
+  hnsw_search_ef: 100
 
 retrieval:
   dense_top_k: 10

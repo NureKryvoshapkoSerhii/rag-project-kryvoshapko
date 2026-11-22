@@ -71,9 +71,13 @@ rag-project-kryvoshapko/
 │   └── settings.yaml        # параметри корпусу, чанкування, моделей і ретривера
 ├── docs/
 │   ├── architecture.mmd     # вихідний код архітектурної діаграми (Mermaid)
-│   └── architecture.png     # контекстна архітектурна діаграма системи
+│   ├── architecture.png     # контекстна архітектурна діаграма системи
+│   ├── lab2_corpus_stats.png # графіки статистики корпусу (ЛБ-2)
+│   └── lab3_recall_chart.png # графіки Recall@k та підбору параметрів (ЛБ-3)
 ├── reports/
-│   └── lab-1/               # звіт до лабораторної роботи № 1 (PDF)
+│   ├── lab-1/               # звіт до лабораторної роботи № 1 (PDF)
+│   ├── lab-2/               # data-card.md та звіт до ЛБ-2 (PDF)
+│   └── lab-3/               # report.md та звіт до ЛБ-3 (PDF)
 ├── src/
 │   ├── ingest/              # прийом, очищення та чанкування даних (ЛБ-2)
 │   ├── embeddings/          # векторизація та побудова індексу ChromaDB (ЛБ-3)
@@ -151,10 +155,37 @@ python -m unittest discover -s tests -v
 
 ---
 
+## Побудова векторного індексу та семантичний пошук (ЛБ-3)
+
+```powershell
+# Побудова persistent-індексу ChromaDB (2 225 векторів, all-MiniLM-L6-v2, 384d)
+python -m src.embeddings.build_index
+
+# Швидкий перегляд статистики побудованого індексу (data/processed/index_stats.json)
+python -m src.embeddings.build_index --stats
+
+# Семантичний пошук за довільним запитом із командного рядка (top-5)
+python -m src.embeddings.search "How does TCP make sure network packets arrive in the right order?" --top-k 5
+
+# Демонстрація пошуку на 5 контрольних запитах
+python -m src.embeddings.search --demo
+
+# Оцінювання Recall@5 / Recall@10 на tests/eval-set.jsonl (поточний індекс або повний підбір параметрів)
+python -m src.eval.eval_retrieval --current-only
+python -m src.eval.eval_retrieval
+
+# Модульні та інтеграційні тести ЛБ-2 і ЛБ-3
+python -m unittest discover -s tests -v
+```
+
+Результати ЛБ-3: локальний індекс ChromaDB у `data/chroma_db/` (виключено з Git через `.gitignore`), оцінювальний набір `tests/eval-set.jsonl` (20 пар), метрики `Recall@5 = 95.0%`, `Recall@10 = 100.0%`, `MRR@10 = 0.8655` та звіт у `reports/lab-3/report.md`.
+
+---
+
 ## Етапи виконання проєкту (теґи релізів)
 
 - `lab-1` – проєктування ПЗ: сценарій використання, вибір корпусу та стеку, архітектурна діаграма, ініціалізація репозиторію;
 - `lab-2` – збір, очищення, чанкування корпусу (`data/processed/chunks.jsonl`) та `reports/lab-2/data-card.md`;
-- `lab-3` – ембединги, векторний індекс ChromaDB та вимірювання `Recall@k` (заплановано);
+- `lab-3` – ембединги (`all-MiniLM-L6-v2`), векторний індекс ChromaDB, CLI-пошук, `tests/eval-set.jsonl`, вимірювання `Recall@5` / `Recall@10` та `reports/lab-3/report.md`;
 - `lab-4` – гібридний пошук (ChromaDB + BM25 + RRF), генерація через Ollama, контракт цитування та CLI (заплановано);
 - `lab-5` – оцінювання, поведінкові й метаморфні тести, перевірка ін'єкцій промпта (заплановано).
