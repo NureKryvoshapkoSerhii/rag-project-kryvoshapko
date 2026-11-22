@@ -1,11 +1,3 @@
-"""CLI-скрипт семантичного пошуку у векторному індексі ChromaDB (Лабораторна робота № 3).
-
-Приклади запуску із кореня репозиторію:
-    python -m src.embeddings.search "How does TCP deliver packets reliably?"
-    python -m src.embeddings.search "What is a hash table?" --top-k 5
-    python -m src.embeddings.search --demo
-"""
-
 from __future__ import annotations
 
 import argparse

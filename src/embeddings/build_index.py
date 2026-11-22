@@ -1,10 +1,3 @@
-"""Побудова векторних представлень та індексу ChromaDB над корпусом (Лабораторна робота № 3).
-
-Запуск із кореня репозиторію:
-    python -m src.embeddings.build_index
-    python -m src.embeddings.build_index --no-title --metric l2
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -41,11 +34,6 @@ def load_chunks(chunks_path: Path) -> list[dict[str, Any]]:
 
 
 def format_chunk_for_embedding(chunk: dict[str, Any], prepend_title: bool = True) -> str:
-    """Формує текст чанка для кодування моделлю ембедингів.
-
-    Додавання заголовка статті перед текстом зберігає тематичний контекст
-    для внутрішніх чанків (chunk_index > 0), де назва теми може не повторюватися.
-    """
     text = chunk["text"].strip()
     title = str(chunk.get("title") or "").strip()
     if prepend_title and title:
